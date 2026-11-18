@@ -1,12 +1,35 @@
 const excelInput = document.getElementById("excel-input");
+const label = document.getElementById("excel-input-label");
+const snowContainer = document.getElementById("snow-container");
+defaultLabel();
+summonSnow();
 
 excelInput.addEventListener("change", loadExcel);
 
 /* Excel loading */
 
+function summonSnow() {
+  snowContainer.innerHTML = Array.from(
+    { length: 11 },
+    () => `
+  <div class="snowflake">
+    <div class="inner">❅</div>
+  </div>
+`,
+  ).join("");
+}
+
+function defaultLabel() {
+  label.innerText = "Select a file";
+}
+
 async function loadExcel(event) {
   const file = event.target.files[0];
-  if (!file) return;
+  if (!file) {
+    defaultLabel();
+    return;
+  }
+  label.innerText = file.name;
 
   const reader = new FileReader();
 
@@ -110,7 +133,9 @@ function getFirstValue(table, key) {
 }
 
 function getHtmlString(table, key) {
-  return getColumnValues(table, key).map(item => `${item}`).join("<br />")
+  return getColumnValues(table, key)
+    .map((item) => `${item}`)
+    .join("<br />");
 }
 
 /* Quote items */
@@ -171,7 +196,7 @@ function renderPersonalItems(personal) {
   document.getElementById("business-address").innerHTML = getHtmlString(
     personal,
     "My_Address",
-  )
+  );
 
   document.getElementById("business-phone").innerHTML = getHtmlString(
     personal,
@@ -191,7 +216,7 @@ function renderPersonalItems(personal) {
   document.getElementById("customer-address").innerHTML = getHtmlString(
     personal,
     "Their_Address",
-  )
+  );
 
   document.getElementById("quote-date").innerHTML =
     new Date().toLocaleDateString("en-ZA", {
