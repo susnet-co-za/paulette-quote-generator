@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For printing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <input class="no-print" type="file" id="excel-input" accept=".xlsx, .xls" />
+
+    <div class="to-print">
+      <div class="sections">
+        <section class="quote-header">
+          <img
+            class="header-image"
+            src="logo.png"
+            alt="Paulette Holmes Interiors"
+          />
+
+          <div class="quote-information">
+            <h1>QUOTE</h1>
+            <hr />
+
+            <p class="quote-date" id="quote-date"></p>
+
+            <h2 id="business-name"></h2>
+
+            <address id="business-address"></address>
+
+            <div class="contact-details">
+              <p>
+                <span class="material-symbols-rounded">call</span>
+                <span id="business-phone"></span>
+              </p>
+              <p>
+                <span class="material-symbols-rounded">mail</span>
+                <span id="business-email"></span>
+              </p>
+            </div>
+          </div>
+
+          <div class="for-attention">
+            <p>FOR ATTENTION</p>
+            <p id="customer-name"></p>
+          </div>
+
+          <address id="customer-address"></address>
+        </section>
+        <div class="details-divider">
+          <span id="details-element"></span>
+          <hr />
+        </div>
+        <section class="data-section">
+          <table class="quote-table">
+            <thead class="table-head">
+              <tr>
+                <th scope="col">Description</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Unit Price</th>
+                <th scope="col">Total</th>
+              </tr>
+            </thead>
+
+            <tbody id="quote-items"></tbody>
+            <tfoot class="quote-total">
+              <tr>
+                <td></td>
+                <td></td>
+                <th scope="row">Total</th>
+                <td id="quote-total">R 0.00</td>
+              </tr>
+            </tfoot>
+          </table>
+        </section>
+        <section class="quote-footer">
+          <div class="quote-banking" id="banking-details"></div>
+          <div class="thank-you">
+            <p>Thank you for your business!</p>
+            <p>It's a pleasure to work with you on your project</p>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

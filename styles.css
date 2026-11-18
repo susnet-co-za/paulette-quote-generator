@@ -1,0 +1,413 @@
+:root {
+  --ink: #302c29;
+  --text: #625d58;
+  --muted: #92877d;
+  --accent: #a18b78;
+  --accent-light: #e9e1d8;
+  --background: #f5f2ee;
+  --paper: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@page {
+  size: A4;
+  margin: 12mm;
+
+  @top-right {
+    content: "";
+    display: none;
+  }
+
+  @bottom-right {
+    content: "";
+    display: none;
+  }
+}
+
+/* General layout */
+
+body {
+  min-height: 100vh;
+  padding: 3rem 1rem;
+  background: var(--background);
+  color: var(--ink);
+  font-family: "Open Sans", sans-serif;
+}
+
+.to-print {
+  width: min(100%, 794px);
+  margin: 0 auto;
+  background: var(--paper);
+  box-shadow: 0 12px 50px rgb(48 44 41 / 12%);
+}
+
+.sections {
+  position: relative;
+  padding: 55px 60px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.sections > hr {
+  width: 100%;
+  margin: 30px 0;
+  border: none;
+  border-top: 1px solid var(--accent-light);
+}
+
+/* Header */
+
+.quote-header {
+  position: relative;
+  color: var(--ink);
+}
+
+.quote-information {
+  position: relative;
+  z-index: 1;
+  width: 65%;
+}
+
+.quote-header h1 {
+  font-size: 42px;
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  line-height: 1.2;
+}
+
+.quote-header hr {
+  width: 55px;
+  margin: 22px 0;
+  border: none;
+  border-top: 3px solid var(--accent);
+}
+
+.quote-date {
+  margin: 32px 0 42px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.quote-header h2 {
+  margin-bottom: 12px;
+  font-family: Georgia, serif;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.quote-header address {
+  color: var(--text);
+  font-size: 13px;
+  font-style: normal;
+  line-height: 1.9;
+  white-space: pre-line;
+}
+
+.quote-header .header-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 28%;
+  max-width: 175px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Contact details */
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.contact-details p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  font-size: 12px;
+}
+
+.contact-details .material-symbols-rounded {
+  color: var(--accent);
+  font-size: 18px;
+}
+
+/* Attention box */
+
+.quote-header .for-attention {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 175px;
+  margin-top: 1rem;
+  padding: 15px 20px;
+  border-left: 3px solid var(--accent);
+  background: #f7f4f0;
+}
+
+.for-attention p:first-child {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+}
+
+.for-attention p:last-child {
+  color: var(--ink);
+  font-family: Georgia, serif;
+  font-size: 16px;
+}
+
+/* Details divider */
+
+.details-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+
+  span {
+    flex-shrink: 0;
+    padding-right: 0.5rem;
+    background: white;
+    color: var(--muted);
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+  }
+
+  hr {
+    flex: 1;
+    border: none;
+    border-top: 1px solid var(--accent);
+  }
+}
+
+/* Quote table */
+
+.data-section {
+  color: var(--ink);
+}
+
+.quote-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+.quote-table th,
+.quote-table td {
+  padding: 14px 10px;
+  text-align: left;
+}
+
+.quote-table th {
+  background: #9b89794f;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.quote-table td {
+  border-bottom: 1px solid #e8e3df;
+  color: var(--text);
+  font-size: 12px;
+}
+
+.quote-table tbody tr:nth-child(even) {
+  background: #f7f4f0;
+}
+
+/* Column sizing and alignment */
+
+.quote-table th:first-child,
+.quote-table td:first-child {
+  width: auto;
+}
+
+.quote-table th:nth-child(2),
+.quote-table td:nth-child(2) {
+  text-align: center;
+}
+
+.quote-table th:nth-child(3),
+.quote-table td:nth-child(3) {
+  text-align: right;
+}
+
+.quote-table th:nth-child(4),
+.quote-table td:nth-child(4) {
+  text-align: right;
+}
+
+/* Total */
+
+.quote-total {
+  th,
+  td {
+    font-size: x-large;
+    background: none;
+    border-bottom: 2px solid var(--accent-light);
+  }
+}
+
+/* Footer */
+
+.quote-footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-top: 10px;
+}
+
+.quote-banking {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: var(--text);
+}
+
+.quote-banking > :first-child {
+  margin-bottom: 5px;
+  color: var(--ink);
+  font-family: Georgia, serif;
+  font-size: 21px;
+}
+
+.quote-banking > :nth-child(n + 2) {
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.quote-footer > hr {
+  display: none;
+}
+
+.thank-you {
+  max-width: 190px;
+  color: var(--muted);
+  text-align: right;
+}
+
+.thank-you p:first-child {
+  margin-bottom: 8px;
+  color: var(--ink);
+  font-family: Georgia, serif;
+  font-size: 17px;
+}
+
+.thank-you p:last-child {
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* Smaller screens */
+
+@media screen and (max-width: 600px) {
+  body {
+    padding: 1rem 0.5rem;
+  }
+
+  .sections {
+    padding: 35px 25px;
+  }
+
+  .quote-header h1 {
+    font-size: 32px;
+  }
+
+  .quote-information {
+    width: 75%;
+  }
+
+  .quote-header .header-image {
+    width: 23%;
+  }
+
+  .quote-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .thank-you {
+    text-align: left;
+  }
+
+  .quote-table th,
+  .quote-table td {
+    padding: 10px 4px;
+    font-size: 10px;
+  }
+
+  .quote-table th:nth-child(2),
+  .quote-table td:nth-child(2) {
+    width: 35px;
+  }
+
+  .quote-table th:nth-child(3),
+  .quote-table td:nth-child(3),
+  .quote-table th:nth-child(4),
+  .quote-table td:nth-child(4) {
+    width: 75px;
+  }
+}
+
+/* Printing */
+
+@media print {
+  body {
+    display: contents;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .sections {
+    display: contents;
+  }
+
+  .to-print {
+    margin: 0;
+    box-shadow: none;
+  }
+
+  .quote-header,
+  .quote-footer {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .quote-table {
+    width: 100%;
+  }
+
+  .quote-table thead {
+    display: table-header-group;
+  }
+
+  .quote-total,
+  .quote-footer,
+  .quote-table tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
